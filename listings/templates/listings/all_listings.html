@@ -1,0 +1,48 @@
+{% extends "listings/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{%block content%} 
+
+<div class="container text-center p-3 " style="width:500px;">
+<h1 class="text-dark">Listings</h1>
+<div class="form-group">
+<div class="card card-body bg-light text-dark rounded" style="width:100%;">
+  <form method="get">
+  <div class="row ">
+    <div class="col-md-3">
+    {{ my_Filter.form.condition|as_crispy_field }}
+    </div>
+    <div class="col-md-3">
+    {{ my_Filter.form.state|as_crispy_field }}
+    </div>
+    <div class="col-md-3">
+    {{ my_Filter.form.city|as_crispy_field }}
+    </div>
+    <div class="col-md-3 p-2">
+    <button class="btn btn-warning border-dark mt-4" type="submit">Search</button>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+</div> 
+                   
+<div class="container">
+<div class="card card-body bg-light text-dark text-center p-3 ">                 
+{% for listing in all_listings %}                  
+  <p><img class="card-img-right img-thumbnail"  src="{{ listing.main_photo.url }}" width=300px height=200px style="max-height:200px" alt="connect">
+  <img class="card-img-right img-thumbnail" src="{{ listing.photo_1.url }}" width=300px height=200px style="max-height:200px" alt="connect"></p>
+  <p><b>Title:</b> {{ listing.title }}</p>
+  <p><b>Condition:</b> {{ listing.condition }}</p>
+  <p><b>Sale Type:</b> {{ listing.sale_type }}</p>
+  <p><b>Price:</b> $ {{ listing.price|floatformat:2 }}</p>
+  <p><b>Location:</b> {{ listing.city }}, {{ listing.state }}</p>
+  <p><b>Post Date:</b> {{ listing.list_date }}</p>             
+  <ul><a class="btn btn-warning border-dark" href="{% url 'listings:detail' listing.id %}">View Listing</a></ul>
+  <hr>                 
+{% endfor %}                  
+</div>
+</div>
+            
+{%endblock content%} 

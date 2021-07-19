@@ -1,0 +1,29 @@
+{% extends "listings/base.html" %}
+
+{%block content%} 
+<div class="container">
+    <div class="row p-5">
+      <div class="col">
+        <h3 class="text-dark mb-4">LISTING:</h3>
+        <p><b>Title:</b> {{ detail.title }}</p>
+          <p><b>Condition:</b> {{ detail.condition }}</p>
+          <p><b>Product Type:</b> {{ detail.product_type }}</p>
+          <p><b>Sale Type:</b> {{ detail.sale_type }}</p>
+          <p><b>Price: $</b> {{ detail.price }}</p>
+          <p><b>Location:</b> {{ detail.city }}, {{ detail.state }}</p>
+          <p><b>Contact Email:</b> {{ detail.contact_email }}</p>
+          <p><b>Post Date:</b> {{ detail.list_date }}</p>
+      </div>
+      <div class="col-4 mt-4">
+        <img class = "card mb-3 " src="{{ detail.main_photo.url }}" width= 350px height=300px style= "max-width: 100%; max-height: 100%;" />
+        {% if detail.photo_2%}
+        <img class = "card " src="{{ detail.photo_2.url }}" width= 350px height=300px style= "max-width: 100%; max-height: 100%;"/>
+        {% endif %}
+      </div>
+      <div class="col-4 mt-4">
+        <img class = "card " src="{{ detail.photo_1.url }}" width= 350px height=300px style= "max-width: 100%; max-height: 100%;" />
+      </div>
+    </div>
+</div>
+              
+{%endblock content%} 

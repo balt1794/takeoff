@@ -1,0 +1,35 @@
+{% extends "listings/base.html" %}
+        
+{% block content %}
+                          
+<h2 class="text-center mb-3">MY LISTINGS:</h2>
+        
+<div class="row">
+  <div class="col">
+    <div class="container text-center p-3">
+      <table class="table text-center">
+        <tr>
+        <th>Product</th>
+        <th>Date Listed</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        </tr>
+        {% for my_listing in my_listings %}
+        <tr>
+        <td>{{ my_listing.title }}</td>
+        <td>{{ my_listing.list_date }}</td>
+        <td><a class="btn btn-warning"  href="{% url 'listings:detail' my_listing.id %}">View</a></td>
+        <td><a class="btn btn-warning"  href="{% url 'listings:edit_listing' my_listing.id %}">Edit</a></td>
+        <td><a class="btn btn-warning"  href="{% url 'listings:delete_listing' my_listing.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+      <div class="container text-center">
+      <a class="btn btn-warning"  href="{% url 'listings:new_listing'%}">New Listing</a>
+      </div>
+    </div>
+  </div>
+</div>     
+        
+{% endblock content %}

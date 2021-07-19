@@ -1,0 +1,38 @@
+{% extends "listings/base.html" %}
+
+{%block content%}
+
+<main>
+  <div class="container py-4">
+   
+    <div class="p-5 mb-4 bg-warning rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">BIKE FINDER</h1>
+        <p class="col-md-8 fs-4">Find the latest bikes, parts, accessories, and more.</p>
+        <button class="btn btn-dark btn-lg" type="button"><a class="text-light" href="{% url 'listings:all_listings' %}">Explore </a></button>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Sell and Buy Faster</h2>
+          <p>Find people nearby, connect, strike a deal, get paid, done.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark border rounded-3">
+          <h2>Unlimited Listings</h2>
+          <p>Create an account and start listing immediately. No limits! No fees!</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+      © BikeFinder 2021
+    </footer>
+
+  </div>
+</main>
+
+{%endblock content%}  

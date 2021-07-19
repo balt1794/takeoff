@@ -1,0 +1,46 @@
+{% extends "listings/base.html" %}
+{% load crispy_forms_tags %}
+        
+{%block content%} 
+<h2 class="p-3 text-center">NEW LISTING</h2>
+<div class="container" style="width: 50%;">
+    <form action="{% url 'listings:new_listing' %}" method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+            
+    <div class="row">
+        <div class="col">{{ form.title|as_crispy_field }}</div>
+        <div class="col">{{ form.product_type|as_crispy_field }}</div>
+    </div>
+            
+    <div class="row">
+        <div class="col">{{ form.condition|as_crispy_field }}</div>
+        <div class="col">{{ form.sale_type|as_crispy_field }}</div>
+    </div>
+        
+    <div class="row">
+        <div class="col">{{ form.city|as_crispy_field }}</div>
+        <div class="col">{{ form.state|as_crispy_field }}</div>
+        <div class="col">{{ form.zipcode|as_crispy_field }}</div>
+    </div>
+        
+    <div class="row">
+        <div class="col">{{ form.price|as_crispy_field }}</div>
+        <div class="col">{{ form.contact_email|as_crispy_field }}</div>
+    </div>
+        
+    <div class="row">
+        <div class="col-6">{{ form.main_photo|as_crispy_field }}</div>
+        <div class="col-6">{{ form.photo_1|as_crispy_field }}</div>
+    </div>
+        
+    <div class="row">
+        <div class="col-6">{{ form.photo_2|as_crispy_field }}</div>
+    </div>
+              
+    <div class = "container text-center p-3">
+        <button type="submit" class="btn btn-warning">Create Listing</button>
+    </div>
+    </form>
+</div>
+                      
+{%endblock content%}  

@@ -1,0 +1,20 @@
+{% extends "listings/base.html" %}
+
+{% block content %}
+                            
+<div class="main">
+  <form method="POST">
+    {% csrf_token %}
+      <div class="container text-center p-5">
+        <div class="card">
+          <h3 class="p-4">Do you want to delete <b>{{listing.title}}</b> listing ? </h3>
+          <div class="container p-4">
+            <input type="submit" class="btn btn-warning" value="Delete" />
+            <a class= "btn btn-danger" href="{% url 'listings:my_listings'%}">Cancel</a>
+          </div>
+        </div>
+      </div>
+  </form>
+</div>
+
+{% endblock content %}
