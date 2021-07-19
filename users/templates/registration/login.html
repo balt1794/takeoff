@@ -1,0 +1,16 @@
+{% extends "listings/base.html" %}
+{% load crispy_forms_tags %}       
+
+{% block content %}
+<h1 class="text-center p-3">Login</h1>
+<div class="container p-3" style="width:35%;">   
+    <form method="POST" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="container text-center">
+        <button name="submit" class="btn btn-warning">Submit</button>
+        <input type="hidden" name="next" value="{% url 'listings:index' %}"/>
+        </div>
+    </form>
+</div>
+{% endblock content %}
